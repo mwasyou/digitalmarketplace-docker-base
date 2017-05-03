@@ -14,3 +14,6 @@ ONBUILD COPY . ${APP_DIR}
 ONBUILD RUN ./scripts/build.sh
 
 ONBUILD RUN apk del .build-deps
+
+ONBUILD ARG release_name
+ONBUILD RUN echo ${release_name} > ${APP_DIR}/version_label
