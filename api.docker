@@ -1,0 +1,8 @@
+FROM digitalmarketplace/base
+
+ONBUILD COPY requirements.txt ${APP_DIR}
+ONBUILD RUN pip install --no-cache-dir -r requirements.txt
+
+ONBUILD COPY . ${APP_DIR}
+
+ONBUILD RUN apk del .build-deps
