@@ -8,11 +8,13 @@ RUN apk add --no-cache --virtual .build-deps git nodejs gcc g++ make python2-dev
 RUN pip install supervisor==3.3.1 awscli awscli-cwlogs && aws configure set plugins.cwlogs cwlogs
 
 COPY supervisord.conf /etc/supervisord.conf
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
 COPY uwsgi.conf /etc/uwsgi.conf
 COPY awslogs.conf /etc/awslogs.conf
 
-RUN mkdir -p ${APP_DIR} && chmod 777 /run
+COPY nginx/run.sh /nginx.sh
+
+RUN mkdir -p ${APP_DIR} && mkdir -p /etc/nginx/sites-enabled && chmod 777 /run
 WORKDIR ${APP_DIR}
 
 CMD ["supervisord", "--configuration", "/etc/supervisord.conf"]

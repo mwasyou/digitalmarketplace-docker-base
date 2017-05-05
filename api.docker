@@ -1,5 +1,7 @@
 FROM digitalmarketplace/base
 
+COPY nginx/api /etc/nginx/sites-enabled/api
+
 ONBUILD COPY requirements.txt ${APP_DIR}
 ONBUILD RUN pip install --no-cache-dir -r requirements.txt
 
