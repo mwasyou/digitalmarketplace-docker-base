@@ -18,7 +18,6 @@ COPY awslogs/run.sh /awslogs.sh
 RUN mkdir -p ${APP_DIR} && \
     mkdir -p /etc/nginx/sites-enabled && \
     mkdir -p /var/log/digitalmarketplace && \
-    chmod +x /etc/awslogs.sh && \
     chmod 777 /run
 
 WORKDIR ${APP_DIR}
