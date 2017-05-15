@@ -7,7 +7,5 @@ ONBUILD RUN pip install --no-cache-dir -r requirements.txt
 
 ONBUILD COPY . ${APP_DIR}
 
-ONBUILD RUN apk del .build-deps
-
 ONBUILD ARG release_name
 ONBUILD RUN echo ${release_name} > ${APP_DIR}/version_label
