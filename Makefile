@@ -14,11 +14,11 @@ build:
 
 .PHONY: push
 push:
-	docker push digitalmarketplace/base
 	docker push digitalmarketplace/base:${VERSION}
+	docker push digitalmarketplace/base:latest
 
-	docker push digitalmarketplace/base-api
 	docker push digitalmarketplace/base-api:${VERSION}
+	docker push digitalmarketplace/base-api:latest
 
-	docker push digitalmarketplace/base-frontend
 	docker push digitalmarketplace/base-frontend:${VERSION}
+	docker push digitalmarketplace/base-frontend:latest
