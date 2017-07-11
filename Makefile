@@ -15,13 +15,13 @@ endef
 
 define push-image
 	docker push digitalmarketplace/base:${BUILD_VERSION}
-	docker push digitalmarketplace/base:latest
+	if [ "$${BUILD_VERSION:0:1}" -ne "1" ]; then docker push digitalmarketplace/base:latest; fi
 
 	docker push digitalmarketplace/base-api:${BUILD_VERSION}
-	docker push digitalmarketplace/base-api:latest
+	if [ "$${BUILD_VERSION:0:1}" -ne "1" ]; then docker push digitalmarketplace/base-api:latest; fi
 
 	docker push digitalmarketplace/base-frontend:${BUILD_VERSION}
-	docker push digitalmarketplace/base-frontend:latest
+	if [ "$${BUILD_VERSION:0:1}" -ne "1" ]; then docker push digitalmarketplace/base-frontend:latest; fi
 endef
 
 .PHONY: build-all
