@@ -25,7 +25,7 @@ define push-image
 endef
 
 .PHONY: build-all
-build-all: build-py3 build-py2
+build-all: build-py2 build-py3
 
 .PHONY: build-py3
 build-py3:
@@ -39,7 +39,7 @@ build-py2:
 	$(call build-image)
 
 .PHONY: push-all
-push-all: push-py3 push-py2
+push-all: push-py2 push-py3
 
 .PHONY: push-py3
 push-py3:
