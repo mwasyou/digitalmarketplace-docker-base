@@ -6,7 +6,8 @@ ENV NODE_VERSION 6.10.3
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends nginx \
-                    libpcre3-dev libpq-dev libffi-dev gcc make git curl xz-utils python2.7 python-pip && \
+                    libpcre3-dev libpq-dev libffi-dev libxml2-dev libxslt-dev \
+                    gcc make git curl xz-utils python2.7 python-pip && \
     curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" && \
     tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 && \
     rm "node-v$NODE_VERSION-linux-x64.tar.xz" && \
