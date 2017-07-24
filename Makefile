@@ -30,6 +30,7 @@ build-all: build-py2 build-py3
 .PHONY: build-py3
 build-py3:
 	$(eval export BUILD_VERSION=${VERSION})
+	$(eval export BASE_IMAGE_SUFFIX=)
 	$(call build-image)
 
 .PHONY: build-py2
