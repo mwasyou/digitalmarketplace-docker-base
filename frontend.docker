@@ -6,10 +6,7 @@ ONBUILD COPY requirements.txt ${APP_DIR}
 ONBUILD RUN pip install --no-cache-dir -r requirements.txt
 
 ONBUILD COPY package.json ${APP_DIR}
-ONBUILD RUN npm install
-
-ONBUILD COPY bower.json ${APP_DIR}
-ONBUILD RUN ./node_modules/bower/bin/bower install --allow-root
+ONBUILD RUN yarn
 
 ONBUILD COPY . ${APP_DIR}
 
